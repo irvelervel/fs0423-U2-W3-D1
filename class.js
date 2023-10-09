@@ -16,7 +16,9 @@ class NamedPerson {
   // la mettiamo fuori, ma sempre nella classe
 
   // poiché siamo fuori dal constructor, le proprietà e i metodi vanno scritti SENZA il this.
-  showCompleteName = function () {
+  showCompleteName() {
+    // nelle classi e nelle funzioni costruttore le funzioni freccia ricevono un binding automatico all'oggetto
+    // generato dalla classe e quindi non allo scope esterno
     return `Mi chiamo ${this.firstName} ${this.lastName}!`
   }
 
@@ -38,4 +40,4 @@ const orlandoBloom = new NamedPerson(
 )
 
 console.log(stefano)
-console.log(orlandoBloom)
+console.log(orlandoBloom.showCompleteName())
