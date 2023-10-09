@@ -39,7 +39,7 @@ house.explode()
 
 console.log(house.__proto__) // Object
 
-const person = {
+let person = {
   firstName: 'Mario',
   lastName: 'Rossi',
   sayHello: function () {
@@ -51,12 +51,13 @@ const person = {
 }
 person.sayHello()
 
-// TO BE CONTINUED...
-// const anotherPerson = person
+const anotherPerson = person
 // // questa assegnazione NON crea una copia dell'oggetto! ma di fatto ci fornisce un altro accesso allo stesso oggetto in memoria...
 
-// delete person.firstName
+person = null // elimino il riferimento all'oggetto chiamato "person"
+anotherPerson.sayHello() // funziona se uso "this.firstName", ma NON se uso "person.firstName", perchè l'ho appena eliminato
 
+//
 // JS permette di creare oggetti "al volo", bello!
 // ma come fare quando dobbiamo creare 50 case, e non vogliamo copincollare tutte le proprietà per creare nuovi oggetti
 // tutti dotati delle stesse caratteristiche?

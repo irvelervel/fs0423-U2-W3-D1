@@ -55,3 +55,34 @@ console.log(luigiBros.showCompleteName())
 // già meglio, l'editor ci suggerisce le proprietà e i metodi e almeno non li inventiamo da capo per ogni oggetto...
 // però sarebbe bello SALTARE questo passaggio, questa assegnazione a mano delle proprietà... magari creando
 // l'oggetto direttamente con le proprietà in un solo passaggio!
+
+// creiamo ora una funzione costruttore più "FURBA", che assegnerà direttamente i valori dalle proprietà...
+// ...ma da dove arrivano questi valori? Saranno i PARAMETRI con cui invocherò la funzione costruttore!
+
+const NamedPerson = function (_firstName, _lastName, _address, _email) {
+  this.firstName = _firstName
+  this.lastName = _lastName
+  this.address = _address
+  this.email = _email
+  this.showCompleteName = function () {
+    return `Mi chiamo ${this.firstName} ${this.lastName}!`
+  }
+}
+
+const princessPeach = new NamedPerson(
+  'Peach',
+  'Toadstool',
+  'Flower Road 1',
+  'princess.peach@gmail.com'
+)
+
+console.log(princessPeach)
+
+const bowser = new NamedPerson(
+  'Bowser',
+  'Koopa',
+  'Hell Rd n. 666',
+  'bowser.koopa@gmail.com'
+)
+
+console.log(bowser)
